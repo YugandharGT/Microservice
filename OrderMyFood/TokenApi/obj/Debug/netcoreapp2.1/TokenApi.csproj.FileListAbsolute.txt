@@ -1,0 +1,17 @@
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\bin\Debug\netcoreapp2.1\appsettings.Development.json
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\bin\Debug\netcoreapp2.1\appsettings.json
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\bin\Debug\netcoreapp2.1\TokenApi.deps.json
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\bin\Debug\netcoreapp2.1\TokenApi.runtimeconfig.json
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\bin\Debug\netcoreapp2.1\TokenApi.runtimeconfig.dev.json
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\bin\Debug\netcoreapp2.1\TokenApi.dll
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\bin\Debug\netcoreapp2.1\TokenApi.pdb
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.AssemblyInfoInputs.cache
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.AssemblyInfo.cs
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.csproj.CoreCompileInputs.cache
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.RazorAssemblyInfo.cache
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.RazorAssemblyInfo.cs
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.RazorTargetAssemblyInfo.cache
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.dll
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.pdb
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.genruntimeconfig.cache
