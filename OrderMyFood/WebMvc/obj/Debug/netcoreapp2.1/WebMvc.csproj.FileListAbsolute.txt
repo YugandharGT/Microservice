@@ -1,6 +1,5 @@
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\bin\Debug\netcoreapp2.1\appsettings.Development.json
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\bin\Debug\netcoreapp2.1\appsettings.json
-D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\bin\Debug\netcoreapp2.1\WebMvc.deps.json
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\bin\Debug\netcoreapp2.1\WebMvc.runtimeconfig.json
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\bin\Debug\netcoreapp2.1\WebMvc.runtimeconfig.dev.json
@@ -33,3 +32,7 @@ D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\net
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\WebMvc.pdb
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\WebMvc.genruntimeconfig.cache
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\WebMvc.csproj.CopyComplete
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\WebMvc.csprojAssemblyReference.cache
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Restaurant\Index.cshtml.g.cs
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Restaurant\_pagination.cshtml.g.cs
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Restaurant\_product.cshtml.g.cs

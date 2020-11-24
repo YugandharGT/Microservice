@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
-using RestaurantSearchApi.Business.Interfaces;
-using RestaurantSearchApi.Data;
-using RestaurantSearchApi.Model;
+using OrderMyFood.RestaurantSearchApi.Business.Interfaces;
+using OrderMyFood.RestaurantSearchApi.Data;
+using OrderMyFood.RestaurantSearchApi.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestaurantSearchApi.Business.Concrete
+namespace OrderMyFood.RestaurantSearchApi.Business.Concrete
 {
     public enum SearchTypes
     {
@@ -53,65 +53,73 @@ namespace RestaurantSearchApi.Business.Concrete
 
         //verison2
         public SearchTypes UserChoice { get; set; }
-        public IEnumerable<Restaurant> InvokeRestaurantSearch(string filter)
+        public IQueryable<Restaurant> InvokeRestaurantSearch(string filter)
         {
             selectedStrategy = strategies[UserChoice]; //e.g: Enum Name
             return selectedStrategy.Search(filter);
         }
     }
+    internal class RestaurantList
+    {
+        public static IQueryable<Restaurant> GetAll()
+        {
+            var dbContext = new RestaurantContext();
+            return dbContext.Restaurants; 
+        }
+    }
     internal class RestaurantName : IRestaurant
     {
-        public IEnumerable<Restaurant> Search(string filter)
+        public IQueryable<Restaurant> Search(string filter)
         {
-            using(var dbContext = new RestaurantContext())
-            {
-                var result = dbContext.Restaurants.Where(x => x.Name == filter).ToList();
-                return result;
-            }
+            var dbContext = new RestaurantContext();
+            return dbContext.Restaurants.Where(x => x.Name == filter);
+            
        }
     }
 
     internal class RestaurantLocation : IRestaurant
     {
-        public IEnumerable<Restaurant> Search(string filter)
+        public IQueryable<Restaurant> Search(string filter)
         {
-            using (var dbContext = new RestaurantContext())
-            {
-                var result = dbContext.Restaurants.Where(x => x.Location.Contains(filter)).ToList();
-                return result;
-            }
+            var dbContext = new RestaurantContext();
+            return dbContext.Restaurants.Where(x => x.Location.Contains(filter));
+            
         }
     }
 
     internal class RestaurantDistance : IRestaurant
     {
-        public IEnumerable<Restaurant> Search(string filter)
+        public IQueryable<Restaurant> Search(string filter)
         {
-            throw new NotImplementedException();
+            var dbContext = new RestaurantContext();
+            return dbContext.Restaurants.Where(x => x.Distance == Convert.ToInt32(filter));
         }
     }
 
     internal class RestaurantCuisine : IRestaurant
     {
-        public IEnumerable<Restaurant> Search(string filter)
+        public IQueryable<Restaurant> Search(string filter)
         {
-            throw new NotImplementedException();
+            var dbContext = new RestaurantContext();
+            return dbContext.Restaurants.Where(x => x.Cuisine.Contains(filter));
         }
     }
 
     internal class RestaurantRating : IRestaurant
     {
-        public IEnumerable<Restaurant> Search(string filter)
+        public IQueryable<Restaurant> Search(string filter)
         {
-            throw new NotImplementedException();
+            var dbContext = new RestaurantContext();
+            return dbContext.Restaurants.Where(x => x.Ratings == Convert.ToSByte(filter));
         }
     }
 
     internal class RestaurantBudget : IRestaurant
     {
-        public IEnumerable<Restaurant> Search(string filter)
+        public IQueryable<Restaurant> Search(string filter)
         {
-            throw new NotImplementedException();
+            var dbContext = new RestaurantContext();
+            return dbContext.Restaurants.Where(x => x.Budget <= Convert.ToDecimal(filter));
         }
     }
 }

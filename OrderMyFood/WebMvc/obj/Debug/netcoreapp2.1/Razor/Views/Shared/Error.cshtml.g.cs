@@ -14,17 +14,17 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #line 1 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\Views\_ViewImports.cshtml"
-using WebMvc;
+using OrderMyFood.Web.WebMvc;
 
 #line default
 #line hidden
 #line 2 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\Views\_ViewImports.cshtml"
-using WebMvc.Models;
+using OrderMyFood.Web.WebMvc.Models;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"583387379a597938339285f5a623245873b0a91c", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"82dfb9e8d9c1e15d2e9f7b4d3cf193b2b540299a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dc70aa04cc66dd3988b12c4b3572a58311a3d96f", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

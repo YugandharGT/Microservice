@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestaurantSearchApi.Infrastructure.Exceptions
+namespace OrderMyFood.RestaurantSearchApi.Infrastructure.Exceptions
 {
     /// <summary>
     /// Exception type for domain exceptions

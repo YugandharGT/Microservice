@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RestaurantSearchApi.Data.EntityDbMapping;
-using RestaurantSearchApi.Model;
+using OrderMyFood.RestaurantSearchApi.Data.EntityDbMapping;
+using OrderMyFood.RestaurantSearchApi.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestaurantSearchApi.Data
+namespace OrderMyFood.RestaurantSearchApi.Data
 {
     public class RestaurantContext : DbContext
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace WebMvc.Models
+namespace OrderMyFood.Web.WebMvc.Models
 {
     public class ErrorViewModel
     {

@@ -35,3 +35,8 @@ body {
         display: none;
     }
 }
+
+
+.form-group div{
+    margin: 10px;
+}

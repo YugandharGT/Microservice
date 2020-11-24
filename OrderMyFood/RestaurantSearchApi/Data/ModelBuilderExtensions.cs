@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RestaurantSearchApi.Model;
+using OrderMyFood.RestaurantSearchApi.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestaurantSearchApi.Data
+namespace OrderMyFood.RestaurantSearchApi.Data
 {
     public static class ModelBuilderExtensions
     {

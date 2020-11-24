@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ajGdXGo9Gw3RDoZxt4xZVGv1fWawrTsBwLrz41BWAwPn9vlZN2iL2NiJwXD5Kaz3OLU2WncbCrmz9Arb0u+6dg==",
+  "dgSpecHash": "bB0tO+eMf822F5a1cfYe7Hu5HQAj8Qi45s0VA4XS96v5tvsXOV/Bc9YJ6Iwbr2EMAZmqjp0f7zDc58QQImqltw==",
   "success": true,
   "projectFilePath": "D:\\Technology\\Dotnet-Projects\\VS19\\Microservice\\OrderMyFood\\RestaurantSearchApi\\RestaurantSearchApi.csproj",
   "expectedPackageFiles": [
@@ -193,6 +193,10 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Yugandar\\.nuget\\packages\\swashbuckle.aspnetcore\\1.0.0\\swashbuckle.aspnetcore.1.0.0.nupkg.sha512",
+    "C:\\Users\\Yugandar\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\1.0.0\\swashbuckle.aspnetcore.swagger.1.0.0.nupkg.sha512",
+    "C:\\Users\\Yugandar\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\1.0.0\\swashbuckle.aspnetcore.swaggergen.1.0.0.nupkg.sha512",
+    "C:\\Users\\Yugandar\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\1.0.0\\swashbuckle.aspnetcore.swaggerui.1.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
-namespace RestaurantSearchApi.Model
+namespace OrderMyFood.RestaurantSearchApi.Model
 {
     public class Restaurant
     {
@@ -20,9 +20,6 @@ namespace RestaurantSearchApi.Model
         public string Cuisine { get; set; }
         public decimal Budget { get; set; }
         public short Ratings { get; set; }
-
-        //public int MenuId { get; set; }
-        //public Menu Menu { get; set; }
 
     }
 }

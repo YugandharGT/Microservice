@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
-using RestaurantSearchApi.Infrastructure.ActionFilters;
-using RestaurantSearchApi.Infrastructure.Exceptions;
+using OrderMyFood.RestaurantSearchApi.Infrastructure.ActionFilters;
+using OrderMyFood.RestaurantSearchApi.Infrastructure.Exceptions;
 using System.Net;
 
-namespace RestaurantSearchApi.Infrastructure.Filters
+namespace OrderMyFood.RestaurantSearchApi.Infrastructure.Filters
 {
     public class HttpGlobalExceptionFilter : IExceptionFilter
     {

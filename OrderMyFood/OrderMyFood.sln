@@ -7,19 +7,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AAD453C5-1F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A3656B9C-DCD0-4475-B1D1-A84A5C97FB68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSearchApi", "RestaurantSearchApi\RestaurantSearchApi.csproj", "{6D166CE7-C893-4137-8519-23E2D165062A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantSearchApi", "RestaurantSearchApi\RestaurantSearchApi.csproj", "{6D166CE7-C893-4137-8519-23E2D165062A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderApi", "OrderApi\OrderApi.csproj", "{9D867BB6-5B7F-4E28-BD2B-44F1A8E669A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderApi", "OrderApi\OrderApi.csproj", "{9D867BB6-5B7F-4E28-BD2B-44F1A8E669A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerApi", "CustomerApi\CustomerApi.csproj", "{D02E73FB-5547-48FA-A836-3513E2342B55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerApi", "CustomerApi\CustomerApi.csproj", "{D02E73FB-5547-48FA-A836-3513E2342B55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReviewApi", "ReviewApi\ReviewApi.csproj", "{AAC3CFED-CD03-4E1D-BB2B-3E866ADB4099}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReviewApi", "ReviewApi\ReviewApi.csproj", "{AAC3CFED-CD03-4E1D-BB2B-3E866ADB4099}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{D3649387-73F7-422C-B122-B113030F793C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMvc", "WebMvc\WebMvc.csproj", "{7B8266F7-3D80-44AE-B3B1-9818B3C39492}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebMvc", "WebMvc\WebMvc.csproj", "{7B8266F7-3D80-44AE-B3B1-9818B3C39492}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenApi", "TokenApi\TokenApi.csproj", "{6D2C0E49-2CBC-48F2-93C2-47FB668F7374}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TokenApi", "TokenApi\TokenApi.csproj", "{6D2C0E49-2CBC-48F2-93C2-47FB668F7374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8B0970A6-C0E9-4FD2-8EF3-4D9A24F66420}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

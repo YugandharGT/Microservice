@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebMvc.Models;
+using OrderMyFood.Web.WebMvc.Models;
 
-namespace WebMvc.Controllers
+namespace OrderMyFood.WebMvc.Controllers
 {
     public class HomeController : Controller
     {

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestaurantSearchApi.Model
+namespace OrderMyFood.RestaurantSearchApi.Model
 {
     public class Menu
     {
@@ -19,6 +19,5 @@ namespace RestaurantSearchApi.Model
 
         public int RestaurantId { get; set; }
 
-        //public ICollection<Restaurant> Restaurant  { get; set; }
     }
 }

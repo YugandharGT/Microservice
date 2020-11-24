@@ -1,12 +1,12 @@
-﻿using RestaurantSearchApi.Business.Interfaces;
-using RestaurantSearchApi.Data;
-using RestaurantSearchApi.Model;
+﻿using OrderMyFood.RestaurantSearchApi.Business.Interfaces;
+using OrderMyFood.RestaurantSearchApi.Data;
+using OrderMyFood.RestaurantSearchApi.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestaurantSearchApi.Business.Concrete
+namespace OrderMyFood.RestaurantSearchApi.Business.Concrete
 {
     /// <summary>
     /// 

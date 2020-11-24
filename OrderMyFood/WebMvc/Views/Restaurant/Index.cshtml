@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Restaurant";
+    @model OrderMyFood.Web.WebMvc.ViewModels.RestaurantViewModel
+}
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<section class="esh-catalog-filters">
+    <div class="container">
+        <form asp-action="Index_Post" asp-controller="Restaurant" method="post" class="form-horizontal" role="form">
+            <div class="form-group" style="margin:10px;">
+                <div class="row">
+
+                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
+                        <label for="SearchType" class="control-label"></label>
+                        @Html.DropDownListFor( d => d.SelectedRestaurant, Model.SearchType, "--Select--")
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
+                       @Html.TextBoxFor(t => t.RestaurantName)
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
+                        <input id="restaurantSearch" type="submit" value="submit" />
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<div class="container">
+    @Html.Partial("_pagination", Model.PaginationInfo)
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Restaurant ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Distance</th>
+                    <th>Cuisine</th>
+                    <th>Budget</th>
+                    <th>Ratings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Restaurants.Count() > 0)
+                {
+                    @foreach (var restaurant in Model.Restaurants)
+                    {
+                        @Html.Partial("_product", restaurant)
+                    }
+                }
+                else
+                {
+                    <div class="esh-catalog-items row">
+                        THERE ARE NO RESULTS THAT MATCH YOUR SEARCH
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
+    @Html.Partial("_pagination", Model.PaginationInfo)
+</div>
