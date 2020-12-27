@@ -1,4 +1,5 @@
-﻿using OrderMyFood.RestaurantSearchApi.Business.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderMyFood.RestaurantSearchApi.Business.Interfaces;
 using OrderMyFood.RestaurantSearchApi.Data;
 using OrderMyFood.RestaurantSearchApi.Model;
 using System;
@@ -13,11 +14,15 @@ namespace OrderMyFood.RestaurantSearchApi.Business.Concrete
     /// </summary>
     public class MenuContext : IMenu
     {
+        public MenuContext()
+        {
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="restaurantId"></param>
-        public IEnumerable<Menu> GetMenuItems(int restaurantId)
+        public async Task<IEnumerable<object>> GetMenuItems(int restaurantId)
         {
             using (var dbContext = new RestaurantContext())
             {
@@ -25,8 +30,8 @@ namespace OrderMyFood.RestaurantSearchApi.Business.Concrete
                              join m in dbContext.Menus
                              on r.RestaurantId equals m.RestaurantId
                              where r.RestaurantId == restaurantId
-                             select m);
-                return result.ToList();
+                             select new  {m.MenuId, RestaurantName = r.Name, MenuName = m.Name, m.Price});
+                return await result.ToListAsync();
             }
         }
     }

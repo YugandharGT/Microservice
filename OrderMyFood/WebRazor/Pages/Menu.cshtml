@@ -1,0 +1,63 @@
+﻿@page
+@model WebRazor.Pages.MenuModel
+@{
+    ViewData["Title"] = "Restaurant App";
+}
+<environment include="Development">
+
+</environment>
+
+<h3>Menu Items</h3>
+<form class="form-horizontal" method="post">
+    <div class="col-md-2 col-md-offset-1">
+        <select class="form-control" asp-for="PassRestaurant" asp-items="Model.RestaurantViewer"></select>
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+        @Html.AntiForgeryToken()
+        <input id="load" type="submit" value="View Menu" class="btn btn-default" />
+    </div>
+    <div class="row">
+
+    </div>
+</form>
+@if (ViewData["IsTableVisible"] != null && (bool)ViewData["IsTableVisible"] == true)
+{
+    <table id="tblMenu" class="table table-striped">
+        <thead>
+            <tr>
+                <th>RestaurantName</th>
+                <th>MenuID</th>
+                <th>MenuName</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model.Menus)
+        {
+            <tr>
+                <td>@item.RestaurantName</td>
+                <td>@item.MenuId</td>
+                <td>@item.MenuName</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </table>
+    <div>
+        <ul class="pagination">
+            <li class="page-item @(!Model.ShowFirst? "disabled":"")">
+                <a asp-page="/Restaurant" asp-route-CurrentPage="1" class="page-link"><i class="glyphicon glyphicon-fast-backward"></i></a>
+            </li>
+
+            <li class="page-item @(!Model.ShowPrevious? "disabled":"")">
+                <a asp-page="/Restaurant" asp-route-CurrentPage="@(Model.CurrentPage -1)" class="page-link"><i class="glyphicon glyphicon-step-backward"></i></a>
+            </li>
+            <li class="page-item  @(!Model.ShowNext? "disabled":"")">
+                <a asp-page="/Restaurant" asp-route-CurrentPage="@(Model.CurrentPage + 1)" class="page-link"><i class="glyphicon glyphicon-step-forward"></i></a>
+            </li>
+
+            <li class="page-item  @(!Model.ShowLast? "disabled":"")">
+                <a asp-page="/Restaurant" asp-route-CurrentPage="@Model.TotalPages" class="page-link"><i class="glyphicon glyphicon-fast-forward"></i></a>
+            </li>
+        </ul>
+    </div>
+}
+

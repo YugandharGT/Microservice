@@ -8,6 +8,6 @@ namespace OrderMyFood.RestaurantSearchApi.Business.Interfaces
 {
     public interface IMenu
     {
-        IEnumerable<Menu> GetMenuItems(int restaurantId);
+        Task<IEnumerable<object>> GetMenuItems(int restaurantId);
     }
 }

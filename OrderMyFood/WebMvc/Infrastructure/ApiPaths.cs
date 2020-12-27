@@ -69,6 +69,12 @@ namespace OrderMyFood.Web.WebMvc.Infrastructure
             {
                 return $"{baseUri}";
             }
+
+            internal static string GetMenu(string remoteServiceBaseUrl, int restaurantName)
+            {
+                var filterQs = $"/{restaurantName}";
+                return $"{remoteServiceBaseUrl}/GetMenuByRestaurant{filterQs}";
+            }
         }
     }
 }

@@ -27,20 +27,20 @@ namespace OrderMyFood.Services.RestaurantSearchApi.Controllers
             {
                 IQueryable<Restaurant> result=null;
                 //e.g: Convert string to Enum (i.e., Name)
-                var SelectionType = searchTypeId; // "Name";
-                var SelectedValue = searchValue; // string.Empty;
+                var selectionType = searchTypeId; 
+                var selectedValue = searchValue; 
 
-                if (!String.IsNullOrEmpty(searchTypeId) && !String.IsNullOrEmpty(searchValue))
+                if (!String.IsNullOrEmpty(selectionType) && !String.IsNullOrEmpty(selectedValue))
                 {
                     RestaurantImpl impl = new RestaurantImpl
                     {
-                        UserChoice = ParseEnum<SearchTypes>(SelectionType)
+                        UserChoice = ParseEnum<SearchTypes>(selectionType)
                     };
-                    result = impl.InvokeRestaurantSearch(SelectedValue); // ="Mango Tree" 
+                    result = impl.InvokeRestaurantSearch(selectedValue); 
                 }
                 if (result.Any())
                 {
-                    var totalItems = await result.LongCountAsync();
+                    //var totalItems = await result.LongCountAsync();
 
                     //var itemsOnPage = await result
                     //    .Skip(pageSize * pageIndex)
@@ -50,7 +50,8 @@ namespace OrderMyFood.Services.RestaurantSearchApi.Controllers
 
                     //var model = new PaginatedItemsViewModel<Restaurant>(
                     //    pageIndex, pageSize, totalItems, itemsOnPage);
-                    return Ok(result);
+                    var res = await result.ToListAsync();
+                    return Ok(res);
                 }
                 return NotFound();
             }
@@ -95,13 +96,14 @@ namespace OrderMyFood.Services.RestaurantSearchApi.Controllers
 
         }
 
-
-        public ActionResult GetMenuByRestaurant()
+        [HttpGet]
+        [Route("GetMenuByRestaurant/{restaurantName:int}")]
+        public async Task<IActionResult> GetMenuByRestaurant(int restaurantName)
         {
             try
             {
                 IMenu menu = new MenuContext();
-                var result = menu.GetMenuItems(1);
+                var result = await menu.GetMenuItems(restaurantName);
                 if (result.Any())
                 {
                     return Ok(result);

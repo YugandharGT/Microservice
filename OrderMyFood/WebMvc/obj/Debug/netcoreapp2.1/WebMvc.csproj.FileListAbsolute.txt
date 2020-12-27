@@ -36,3 +36,4 @@ D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\net
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Restaurant\Index.cshtml.g.cs
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Restaurant\_pagination.cshtml.g.cs
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Restaurant\_product.cshtml.g.cs
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Restaurant\Order.cshtml.g.cs

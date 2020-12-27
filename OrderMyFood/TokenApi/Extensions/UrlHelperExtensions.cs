@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TokenServiceApi.Controllers;
 
-namespace TokenServiceApi.Extensions
+namespace Microsoft.AspNetCore.Mvc
 {
     public static class UrlHelperExtensions
     {

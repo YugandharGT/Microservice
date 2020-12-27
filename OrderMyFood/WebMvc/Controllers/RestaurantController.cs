@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using OrderMyFood.Web.WebMvc.ViewModels;
 using OrderMyFood.Web.WebMvc.Models;
 using System.Diagnostics;
@@ -23,6 +24,7 @@ namespace OrderMyFood.Web.WebMvc.Controllers
         {
 
             IEnumerable<Restaurant> res = await _catalogSvc.GetAllRestaurants(); // GetRestaurantList(page ?? 0, itemsPage, searchType, searchName) as IEnumerable<Restaurant>;
+
             var vm = new RestaurantViewModel()
             {
                 Restaurants = res,
@@ -41,23 +43,46 @@ namespace OrderMyFood.Web.WebMvc.Controllers
             return View(vm);
         }
 
-        private static void Load(RestaurantViewModel vm)
+        private void Load(RestaurantViewModel vm)
         {
             var arrayList = new System.Collections.ArrayList();
             new Restaurant().GetType().GetProperties().ToList().ForEach(l =>
             {
                 if (l.Name != "RestaurantId") arrayList.Add(l.Name);
             });
-            vm.SearchType = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(arrayList);
+            vm.SearchType = new SelectList(arrayList);
+
+            IEnumerable<Restaurant> restaurants = vm.Restaurants;
+            
+            vm.RestaurantList = restaurants.Select(i => new SelectListItem() { 
+             Value = i.RestaurantId.ToString(),
+             Text = i.Name,
+            });
         }
 
         [HttpPost]
         [ActionName("Index_Post")]
-        public ActionResult Index(RestaurantViewModel viewModel)
-        {          
+        public async Task<IActionResult> Index(string submit, RestaurantViewModel viewModel)
+        {
+            switch (submit)
+            {
+                case "Search":
+                    await NavigateToRestaurant(viewModel);
+                    break;
+                case "GetOrders":
+                    await NavigateToMenu(viewModel);
+                    break;
+            }
+            return View("Index", viewModel);
 
-            IEnumerable<Restaurant> res = _catalogSvc.GetRestaurantList(viewModel.SelectedRestaurant, viewModel.RestaurantName) as IEnumerable<Restaurant>;
-            var vm = new RestaurantViewModel()
+        }
+
+        private async Task NavigateToRestaurant(RestaurantViewModel viewModel)
+        {
+            var type = viewModel.SelectedSearch;
+            var value = viewModel.RestaurantName;
+            IEnumerable<Restaurant> res = await _catalogSvc.GetRestaurantList(type, value);
+            var vm = new RestaurantViewModel
             {
                 Restaurants = res,
                 PaginationInfo = new PaginationInfo()
@@ -67,9 +92,26 @@ namespace OrderMyFood.Web.WebMvc.Controllers
                     TotalPages = (int)Math.Ceiling(((decimal)res.Count() / itemsPage))
                 }
             };
-            Load(vm); 
-            return View("Index", vm);
+            Load(vm);
         }
+
+        private async Task NavigateToMenu(RestaurantViewModel viewModel)
+        {
+            var value = viewModel.SelectedRestaurant;
+            IEnumerable<Menu> menus = await _catalogSvc.GetMenuItems(value);
+            var vm = new RestaurantViewModel()
+            {
+                Restaurants = await _catalogSvc.GetAllRestaurants(),
+            };
+            Load(vm);
+            
+        }
+
+        public ActionResult Order()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

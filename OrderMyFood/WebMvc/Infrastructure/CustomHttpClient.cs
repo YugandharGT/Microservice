@@ -28,20 +28,20 @@ namespace OrderMyFood.Web.WebMvc.Infrastructure
         public async Task<string> GetStringAsync(string uri, string authorizationToken = null, string authorizationMethod = "Bearer")
         {
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
-          
-           // SetAuthorizationHeader(requestMessage);
-            if(authorizationToken != null)
+
+            // SetAuthorizationHeader(requestMessage);
+            if (authorizationToken != null)
             {
-                
+
 
                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue(authorizationMethod, authorizationToken);
             }
             var response = await _client.SendAsync(requestMessage);
-
+            response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }
 
-       
+
 
         private async Task<HttpResponseMessage> DoPostPutAsync<T>(HttpMethod method, string uri, T item, string authorizationToken = null, string authorizationMethod = "Bearer")
         {
@@ -72,7 +72,7 @@ namespace OrderMyFood.Web.WebMvc.Infrastructure
             //}
 
             var response = await _client.SendAsync(requestMessage);
-
+            response.EnsureSuccessStatusCode();
             // raise exception if HttpResponseCode 500 
             // needed for circuit breaker to track fails
 

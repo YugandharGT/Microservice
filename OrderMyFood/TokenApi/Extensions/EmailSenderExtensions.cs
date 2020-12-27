@@ -5,7 +5,7 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using TokenServiceApi.Services;
 
-namespace TokenServiceApi.Extensions
+namespace TokenServiceApi.Services
 {
     public static class EmailSenderExtensions
     {

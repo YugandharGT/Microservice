@@ -83,7 +83,7 @@ namespace OrderMyFood.RestaurantSearchApi.Business.Concrete
         {
             var dbContext = new RestaurantContext();
             return dbContext.Restaurants.Where(x => x.Location.Contains(filter));
-            
+
         }
     }
 
@@ -92,7 +92,7 @@ namespace OrderMyFood.RestaurantSearchApi.Business.Concrete
         public IQueryable<Restaurant> Search(string filter)
         {
             var dbContext = new RestaurantContext();
-            return dbContext.Restaurants.Where(x => x.Distance == Convert.ToInt32(filter));
+            return dbContext.Restaurants.Where(x => x.Distance <= Convert.ToInt32(filter));
         }
     }
 

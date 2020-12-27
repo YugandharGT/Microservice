@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    @model OrderMyFood.Web.WebMvc.ViewModels.
+*@
+@{
+    ViewData["Title"] = "Restaurant";
+
+}
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Restaurant ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Distance</th>
+                    <th>Cuisine</th>
+                    <th>Budget</th>
+                    <th>Ratings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Restaurants.Count() > 0)
+                {
+                    @foreach (var restaurant in @Model.Restaurants)
+                    {
+                       
+                    }
+                }
+                else
+                {
+                    <div class="esh-catalog-items row">
+                        THERE ARE NO RESULTS THAT MATCH YOUR SEARCH
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+
+</div>

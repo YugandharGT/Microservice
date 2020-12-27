@@ -29,6 +29,17 @@ namespace OrderMyFood.Web.WebMvc.Services
             _remoteServiceBaseUrl = $"{_settings.Value.RestaurantUrl}/api/Restaurant";
         }
 
+        public async Task<IEnumerable<Restaurant>> GetOrderByRestaurant(int restaurantName)
+        {
+            var allcatalogItemsUri = ApiPaths.RestaurantPage.GetMenu(_remoteServiceBaseUrl, restaurantName);
+
+            var dataString = await _apiClient.GetStringAsync(allcatalogItemsUri);
+
+            var response = JsonConvert.DeserializeObject<IEnumerable<Restaurant>>(dataString);
+
+            return response;
+        }
+
         public async Task<IEnumerable<Restaurant>> GetRestaurantList(string searchType, string searchName)
         {
             var allcatalogItemsUri = ApiPaths.RestaurantPage.SearchRestaurant(_remoteServiceBaseUrl,searchType, searchName);
@@ -47,6 +58,16 @@ namespace OrderMyFood.Web.WebMvc.Services
             var dataString = await _apiClient.GetStringAsync(getBrandsUri);
 
             var response = JsonConvert.DeserializeObject<IEnumerable<Restaurant>>(dataString);
+            return response;
+        }
+
+        public async Task<IEnumerable<Menu>> GetMenuItems(int restaurantId)
+        {
+            var getBrandsUri = ApiPaths.RestaurantPage.GetMenu(_remoteServiceBaseUrl, restaurantId);
+
+            var dataString = await _apiClient.GetStringAsync(getBrandsUri);
+
+            var response = JsonConvert.DeserializeObject<IEnumerable<Menu>>(dataString);
             return response;
         }
     }

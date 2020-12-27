@@ -21,13 +21,25 @@
 
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
                         <label for="SearchType" class="control-label"></label>
-                        @Html.DropDownListFor( d => d.SelectedRestaurant, Model.SearchType, "--Select--")
+                        @Html.DropDownListFor(d => d.SelectedSearch, Model.SearchType, "--Select--")
                     </div>
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
-                       @Html.TextBoxFor(t => t.RestaurantName)
+                        @Html.TextBoxFor(t => t.RestaurantName)
                     </div>
                     <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
-                        <input id="restaurantSearch" type="submit" value="submit" />
+                        <input id="restaurantSearch" type="submit" name="submit" value="Search" />
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
+                        @Html.DropDownListFor(f => f.SelectedRestaurant, Model.RestaurantList, "--Select--")
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-4">
+                        <input id="restaurantSearch" type="submit" name="submit" value="GetOrders" />
                     </div>
 
                 </div>
@@ -69,4 +81,40 @@
         </table>
     </div>
     @Html.Partial("_pagination", Model.PaginationInfo)
+
+
+    @if (Model.Menus != null)
+    {
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Restaurant Name</th>
+                        <th>Location</th>
+                        <th>Distance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Menus.Count() > 0)
+                    {
+                        @foreach (var item in Model.Menus)
+                        {
+                            <tr>
+                                <td>@item.RestauranName</td>
+                                <td>@item.MenuName</td>
+                                <td>@item.Price</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <div>
+                            THERE ARE NO RESULTS THAT MATCH YOUR SEARCH
+                        </div>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
 </div>

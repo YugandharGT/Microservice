@@ -9,7 +9,9 @@ namespace OrderMyFood.Web.WebMvc.Services
 {
     public interface IRestaurantService
     {
+        Task<IEnumerable<Restaurant>> GetOrderByRestaurant(int restaurantName);
         Task<IEnumerable<Restaurant>> GetRestaurantList(string searchType, string searchName);
         Task<IEnumerable<Restaurant>> GetAllRestaurants();
+        Task<IEnumerable<Menu>> GetMenuItems(int restaurantId);
     }
 }

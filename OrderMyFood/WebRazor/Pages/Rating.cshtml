@@ -1,0 +1,77 @@
+﻿@page
+@model WebRazor.Pages.RatingModel
+@{
+    int ratingCounter = 1;
+}
+<script src="~/jqwidgets/jqxtabs.js"></script>
+<script src="~/jqwidgets/jqxrating.js"></script>
+<jqx-tabs animation-type="fade">
+    <jqx-tab-panel>
+        <jqx-tab-panel-header>View</jqx-tab-panel-header>
+        <jqx-tab-panel-body>
+
+            @foreach (var item in Model.ratingViewModel)
+            {
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <label class="col-sm-3 col-form-label">@item.Name</label>
+                </div>
+                <div class="col-md-2 col-md-offset-1">
+                    <jqx-rating theme="@ViewData["theme"]" value="@item.Star" width="200" height="35"></jqx-rating>
+                </div>
+            </div>
+            }
+
+        </jqx-tab-panel-body>
+    </jqx-tab-panel>
+    <jqx-tab-panel>
+        <jqx-tab-panel-header>Edit</jqx-tab-panel-header>
+        <jqx-tab-panel-body>
+            @foreach (var item in Model.ratingViewModel)
+            {
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-1">
+                        <label class="col-sm-3 col-form-label">@item.Name</label>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1">
+                        <jqx-rating theme="@ViewData["theme"]" value="@item.Star" width="200" height="35"></jqx-rating>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1">
+                        <jqx-button id="@string.Format("postrating_{0}",ratingCounter++)" on-click="btnRatngHandler()">Submit</jqx-button>
+                        @*<input id="@string.Format("postrating_{0}",ratingCounter++)" type="submit" value="Submit" class="btn btn-default" />*@
+                    </div>
+                </div>
+            }
+
+        </jqx-tab-panel-body>
+    </jqx-tab-panel>
+</jqx-tabs>
+    @*<form class="form-horizontal" method="post">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+                <jqx-rating theme="@ViewData["theme"]" value="5" id="SubmittedRating" instance="loadValues()" width="200" height="35"></jqx-rating>
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </form>*@
+
+    @section scripts{
+        <script>
+            function btnRatngHandler(event) {
+                var $curr = $(this);
+                $curr.first().text();
+                $curr.prev().val();
+            }
+
+            function setValues(instance) {
+                instance["setValue"](3);
+            }
+
+            function loadValues(instance) {
+                instance["setValue"](3);
+            }
+
+        </script>
+    }
