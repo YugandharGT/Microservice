@@ -24,17 +24,17 @@ using TokenServiceApi;
 #line default
 #line hidden
 #line 3 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models;
+using OrderMyFood.TokenApi.Models;
 
 #line default
 #line hidden
 #line 4 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models.AccountViewModels;
+using OrderMyFood.TokenApi.Models.AccountViewModels;
 
 #line default
 #line hidden
 #line 5 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models.ManageViewModels;
+using OrderMyFood.TokenApi.Models.ManageViewModels;
 
 #line default
 #line hidden
@@ -49,7 +49,7 @@ using TokenServiceApi.Views.Manage;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6d6e8c06051942d1399a4a8c206e8fb2e50a6d7", @"/Views/Manage/ResetAuthenticator.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8fe70f587ca93124aab4ad3a98385fed86cfefc4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a9ec148b4812704a7506eef45420f5b18f56fefa", @"/Views/_ViewImports.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"949ca5a155c8f81be8663903a0336dde04146eb0", @"/Views/Manage/_ViewImports.cshtml")]
     public class Views_Manage_ResetAuthenticator : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
@@ -112,7 +112,7 @@ Write(ViewData["Title"]);
     ");
             EndContext();
             BeginContext(679, 171, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "934d7179de2c46bb9eb7e24b70518104", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "95d1cbacb4434a63ae21cf5df288eff7", async() => {
                 BeginContext(750, 93, true);
                 WriteLiteral("\r\n        <button class=\"btn btn-danger\" type=\"submit\">Reset authenticator key</button>\r\n    ");
                 EndContext();

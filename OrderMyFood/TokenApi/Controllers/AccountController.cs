@@ -10,15 +10,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using TokenServiceApi.Models;
-using TokenServiceApi.Models.AccountViewModels;
-using TokenServiceApi.Services;
+using OrderMyFood.TokenApi.Models;
+using OrderMyFood.TokenApi.Models.AccountViewModels;
+using OrderMyFood.TokenApi.Services;
 using IdentityServer4.Services;
 using Microsoft.AspNetCore.Http;
 using IdentityServer4.Quickstart.UI;
  
 
-namespace TokenServiceApi.Controllers
+namespace OrderMyFood.TokenApi.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

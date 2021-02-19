@@ -1,16 +1,29 @@
-﻿@page 
+﻿@page
+@using Microsoft.AspNetCore.Authentication;
 @model WebRazor.Pages.RestaurantModel
 @{
     ViewData["Title"] = "Restaurant App";
 }
 <style type="text/css">
-    
 </style>
 <environment include="Development">
-    
+
 </environment>
 
-<h3>Filter Restaurants</h3>
+<h2>Filter Restaurants Access Token</h2>
+<dl>
+    @foreach (var claim in User.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+
+    }
+    <dt>access token</dt>
+    <dd>@await ViewContext.HttpContext.GetTokenAsync("access_token")</dd>
+    <dt>refresh token</dt>
+    <dd>@await ViewContext.HttpContext.GetTokenAsync("refresh_token")</dd>
+</dl>
+
 <form class="form-horizontal" method="post">
     <div class="row">
         <div class="col-md-2 col-md-offset-1">
@@ -89,8 +102,8 @@
                     beforeSend: function (xhr) { xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
                     success: function (data) {
                         debugger;
-                        console.log(data + '' + data.RestauranName[0]); 
-                        var trHtmlHead='<thead><tr><th>' +RestaurantName +'</th><th>' +MenuID +'</th><th>' +MenuName +'</th><th>' +Price +'</th></tr></thead>'
+                        console.log(data + '' + data.RestauranName[0]);
+                        var trHtmlHead = '<thead><tr><th>' + RestaurantName + '</th><th>' + MenuID + '</th><th>' + MenuName + '</th><th>' + Price + '</th></tr></thead>'
                         var trHtml = '';
                         trHtml += trHtmlHead;
                         $.each(data, function (i, item) {
@@ -122,11 +135,11 @@
             //});
         }
 
-       
 
-        //function ajaxMenuItemsCall() {
-        //    ajaxRazorPostJson({ reqKey: "reqVal" }).done(data => alert(data));
-        //}
+
+                //function ajaxMenuItemsCall() {
+                //    ajaxRazorPostJson({ reqKey: "reqVal" }).done(data => alert(data));
+                //}
     </script>
 }
 

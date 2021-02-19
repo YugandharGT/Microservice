@@ -1,11 +1,10 @@
-﻿using OrderApi.Model;
-using OrderApi.OrderAndCancellation;
+﻿using OrderMyFood.Services.OrderApi.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OrderApi.Business
+namespace OrderMyFood.Services.OrderApi.Business
 {
     public class MealOrderContext
     {
@@ -18,58 +17,69 @@ namespace OrderApi.Business
         /// <param name="orderId"></param>
         /// <param name="user"></param>
         /// <returns></returns>
-        public char MealOrderByUser(List<Menu> selectedMealItems, double totalCost, string restaurantId, out string orderId, out Customer user)
+        public string MealOrderByUser(ICollection<FoodMenuModel> selectedMealItems, string restaurantId, Customer customer)
         {
-            Console.WriteLine(string.Empty);
-            Console.WriteLine("Do you want to place order(y/n)...?");
-            var wantsOrder = Console.ReadKey().KeyChar;
-            Console.WriteLine(string.Empty);
+            //Food
+            Meal meal = new Meal();
+            meal.AddFoodItem(selectedMealItems.ToList());
 
-            orderId = string.Empty;
-            user = null;
+            Food food = new Food();
+            OrderFood orderFood = new OrderFood(food);
 
-            if (wantsOrder == 'y')
-            {
-                Console.WriteLine("_________________________");
-                Food food = new Food();
-                OrderFood orderFood = new OrderFood(food);
-                orderFood.FoodItems = selectedMealItems;
-                orderFood.User = new Customer();
-                orderFood.User.UserId = "gul123";
-                orderFood.User.UserName = "Gul Ershad";
-                orderFood.User.Address = "JP Nangar, Bangalore - 5600076";
-                orderFood.User.PhoneNumber = "99998987";
-                orderFood.User.Amount = totalCost;
-                orderFood.RestaurantId = restaurantId;
-                user = orderFood.User;
-                Customer customer = new Customer();
-                //customer.TakeOrder(orderFood);
-                //customer.PlaceOrders();
-                orderId = orderFood.OrderId;
-                Console.WriteLine(string.Empty);
-            }
+           ;
+            //customer detals
+            orderFood.User = new Customer();            
+            orderFood.User.UserName = customer.UserName;
+            orderFood.User.Address = customer.Address;
+            orderFood.User.PhoneNumber = customer.PhoneNumber;
+            var cust = orderFood.AddCustomerIfNotExists(orderFood.User);
+            orderFood.User.CustomerId = cust.CustomerId;
 
-            //Order Cancellation.
-            char cancel = 'n';
-            if (!string.IsNullOrEmpty(orderId))
-            {
-                Console.WriteLine("Do you want to cancel order(y/n)...?");
-                cancel = Console.ReadKey().KeyChar;
-                Console.WriteLine(string.Empty);
+            //payment
+            orderFood.User.Amount = meal.GetCost();
+            orderFood.RestaurantId = restaurantId;
+           ;
+            // Place Order
+            orderFood.Execute();
+            var menuList = meal.FoodItems;
+            return !orderFood.AddOrderDetails(orderFood.OrderId, menuList)
+                ? "An error occured while placing the order"
+                : orderFood.OrderId;
+        }
 
-                if (cancel == 'y')
-                {
-                    Console.WriteLine(String.Empty);
-                    Food food = new Food();
-                    CancelFood cancelOrder = new CancelFood(food);
-                    cancelOrder.OrderId = orderId;
-                    Customer customer = new Customer();
-                    //customer.TakeOrder(cancelOrder);
-                    //customer.PlaceOrders();
-                }
-            }
+        public string MealUpdateByUser(ICollection<FoodMenuModel> updateMealItems, string orderId)
+        {
+            Meal meal = new Meal();
+            meal.AddFoodItem(updateMealItems.ToList());
 
-            return cancel;
+            Food food = new Food();
+            UpdateFood updateOrder = new UpdateFood(food, new OrderFood());
+
+            updateOrder.UpdateFoodItems = updateMealItems;
+            updateOrder.OrderId = orderId;
+            updateOrder.User = new Customer();
+            //updateOrder.User.CustomerId = 12;
+            //updateOrder.User.UserName = "Gul";
+            //updateOrder.User.Address = "Marathahall, Bangalore - 560006";
+            //updateOrder.User.PhoneNumber = "99998988";
+            //payment
+            updateOrder.User.Amount = meal.GetCost();
+
+            if (!updateOrder.ValidateOrderID(orderId)) return "Invalid OrderID";
+
+            //update order
+            updateOrder.Execute();
+            return "Your order is successfully updated";
+            
+        }
+
+        public void MealCancelByUser(string orderId)
+        {
+
+            Food food = new Food();
+            CancelFood cancelOrder = new CancelFood(food);
+            cancelOrder.OrderId = Convert.ToInt32(orderId);
+            cancelOrder.Execute();
         }
 
     }

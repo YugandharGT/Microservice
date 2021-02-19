@@ -24,17 +24,17 @@ using TokenServiceApi;
 #line default
 #line hidden
 #line 3 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models;
+using OrderMyFood.TokenApi.Models;
 
 #line default
 #line hidden
 #line 4 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models.AccountViewModels;
+using OrderMyFood.TokenApi.Models.AccountViewModels;
 
 #line default
 #line hidden
 #line 5 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models.ManageViewModels;
+using OrderMyFood.TokenApi.Models.ManageViewModels;
 
 #line default
 #line hidden
@@ -49,7 +49,7 @@ using TokenServiceApi.Views.Manage;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc682de48cbfba280c1cc9d69c065c008eec8e4a", @"/Views/Manage/Disable2fa.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8fe70f587ca93124aab4ad3a98385fed86cfefc4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a9ec148b4812704a7506eef45420f5b18f56fefa", @"/Views/_ViewImports.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"949ca5a155c8f81be8663903a0336dde04146eb0", @"/Views/Manage/_ViewImports.cshtml")]
     public class Views_Manage_Disable2fa : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
@@ -111,7 +111,7 @@ Write(ViewData["Title"]);
         used in an authenticator app you should ");
             EndContext();
             BeginContext(528, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "318cd5d6907648faa8b1d651c2022656", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2944e220935d491594d814626b76e46c", async() => {
                 BeginContext(570, 39, true);
                 WriteLiteral("reset your\r\n        authenticator keys.");
                 EndContext();
@@ -133,7 +133,7 @@ Write(ViewData["Title"]);
             WriteLiteral("\r\n    </p>\r\n</div>\r\n\r\n<div>\r\n    ");
             EndContext();
             BeginContext(646, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37426cc6cb76475eb640e279d1e26f2c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8472728605444deb0f7d25662ecf616", async() => {
                 BeginContext(709, 81, true);
                 WriteLiteral("\r\n        <button class=\"btn btn-danger\" type=\"submit\">Disable 2FA</button>\r\n    ");
                 EndContext();

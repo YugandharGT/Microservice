@@ -1,6 +1,5 @@
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\OrderApi\bin\Debug\netcoreapp2.1\appsettings.Development.json
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\OrderApi\bin\Debug\netcoreapp2.1\appsettings.json
-D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\OrderApi\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.deps.json
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.runtimeconfig.json
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.runtimeconfig.dev.json

@@ -5,13 +5,33 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+    <Compile Remove="OrderAndCancellation\**" />
+    <Content Remove="OrderAndCancellation\**" />
+    <EmbeddedResource Remove="OrderAndCancellation\**" />
+    <None Remove="OrderAndCancellation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Business\Customer.cs" />
+    <Compile Remove="Migrations\20210129134556_AddIdentity.cs" />
+    <Compile Remove="Migrations\20210129134556_AddIdentity.Designer.cs" />
+    <Compile Remove="Model\Menu.cs" />
+    <Compile Remove="Model\UserModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

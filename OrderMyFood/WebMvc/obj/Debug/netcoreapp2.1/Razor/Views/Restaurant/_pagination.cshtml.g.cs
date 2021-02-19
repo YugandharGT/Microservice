@@ -59,7 +59,7 @@ using OrderMyFood.Web.WebMvc.Models;
             WriteLiteral("\r\n<div class=\"esh-pager\">\r\n    <div class=\"container\">\r\n        <article class=\"esh-pager-wrapper row\">\r\n            <nav>\r\n                ");
             EndContext();
             BeginContext(197, 343, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f3f96147c984b23b648a1cf91a94769", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c15c006c7c34bf891be6b4ce88c3c7c", async() => {
                 BeginContext(488, 48, true);
                 WriteLiteral("\r\n                    Previous\r\n                ");
                 EndContext();
@@ -110,7 +110,7 @@ AddHtmlAttributeValue(" ", 247, Model.Previous, 248, 15, false);
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(770, 328, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e78c1dae8dcf4ed8937ba3b93868d6b6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7b27363f65db43ec9027f56368e460f1", async() => {
                 BeginContext(1050, 44, true);
                 WriteLiteral("\r\n                    Next\r\n                ");
                 EndContext();

@@ -24,17 +24,17 @@ using TokenServiceApi;
 #line default
 #line hidden
 #line 3 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models;
+using OrderMyFood.TokenApi.Models;
 
 #line default
 #line hidden
 #line 4 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models.AccountViewModels;
+using OrderMyFood.TokenApi.Models.AccountViewModels;
 
 #line default
 #line hidden
 #line 5 "D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\Views\_ViewImports.cshtml"
-using TokenServiceApi.Models.ManageViewModels;
+using OrderMyFood.TokenApi.Models.ManageViewModels;
 
 #line default
 #line hidden
@@ -49,7 +49,7 @@ using TokenServiceApi.Views.Manage;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b9a502691153deb181539bdc79df854e81b32631", @"/Views/Manage/_ManageNav.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8fe70f587ca93124aab4ad3a98385fed86cfefc4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a9ec148b4812704a7506eef45420f5b18f56fefa", @"/Views/_ViewImports.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"949ca5a155c8f81be8663903a0336dde04146eb0", @"/Views/Manage/_ViewImports.cshtml")]
     public class Views_Manage__ManageNav : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
@@ -99,7 +99,7 @@ WriteAttributeValue("", 253, ManageNavPages.IndexNavClass(ViewContext), 253, 42,
             WriteLiteral(">");
             EndContext();
             BeginContext(297, 33, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5386a712bbd47b1833eff007bc38630", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "abacb850d3f445b4a8bcda33652e7d89", async() => {
                 BeginContext(319, 7, true);
                 WriteLiteral("Profile");
                 EndContext();
@@ -131,7 +131,7 @@ WriteAttributeValue("", 352, ManageNavPages.ChangePasswordNavClass(ViewContext),
             WriteLiteral(">");
             EndContext();
             BeginContext(405, 43, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a79208641c9f4c7198650517c98f364f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4aac116bf6a49a38bf5eef5f225aaf4", async() => {
                 BeginContext(436, 8, true);
                 WriteLiteral("Password");
                 EndContext();
@@ -172,7 +172,7 @@ WriteAttributeValue("", 510, ManageNavPages.ExternalLoginsNavClass(ViewContext),
             WriteLiteral(">");
             EndContext();
             BeginContext(563, 50, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "77bf4ffcfbd84bad8bee884df9f49b3b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85e554f9b7834275b9812484d68e46a9", async() => {
                 BeginContext(594, 15, true);
                 WriteLiteral("External logins");
                 EndContext();
@@ -212,7 +212,7 @@ WriteAttributeValue("", 642, ManageNavPages.TwoFactorAuthenticationNavClass(View
             WriteLiteral(">");
             EndContext();
             BeginContext(704, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c84cc9f1f92f408daf23c172af78d39a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8da5f781add54ae2bf6f797ab1ea1be9", async() => {
                 BeginContext(744, 25, true);
                 WriteLiteral("Two-factor authentication");
                 EndContext();

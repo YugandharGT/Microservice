@@ -6,12 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using OrderMyFood.Services.OrderApi.Data;
+using Swashbuckle.AspNetCore.Swagger;
 
-namespace OrderApi
+namespace OrderMyFood.Services.OrderApi
 {
     public class Startup
     {
@@ -26,6 +29,19 @@ namespace OrderApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<OrderContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("OrderDB"), options => options.EnableRetryOnFailure()));
+            //Add Framework services
+            services.AddSwaggerGen(options =>
+            {
+                //options.DescribeAllEnumsAsStrings();
+                options.SwaggerDoc("v1", new Info()
+                {
+                    Title = "Food Order- Order HTTP API",
+                    Version = "v1",
+                    Description = "The Catalog Microservice HTTP API",
+                    TermsOfService = "Terms Of Service"
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +56,13 @@ namespace OrderApi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            app.UseSwagger()
+            .UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint($"/swagger/v1/swagger.json", "OrderApi V1");
+
+            });
+          
             app.UseMvc();
         }
     }

@@ -14,6 +14,8 @@ namespace TokenApi
         {
             Dictionary<string, string> urls = new Dictionary<string, string>();
             urls.Add("Mvc", configuration.GetValue<string>("MvcClient"));
+            urls.Add("RestaurantApi", configuration.GetValue<string>("MvcClient"));
+            urls.Add("ReviewApi", configuration.GetValue<string>("MvcClient"));
             return urls;
         }
 
@@ -22,6 +24,7 @@ namespace TokenApi
             return new List<ApiResource>
             {
                  new ApiResource("Restaurant", "Restaurant Api"),
+                 new ApiResource("Review", "Review Api"),
                  new ApiResource("orders", "Ordering Api"),
             };
         }

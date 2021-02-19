@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OrderApi.Infrastructure.ActionFilters
+namespace OrderMyFood.Services.OrderApi.Infrastructure.ActionFilters
 {
     public class InternalServerErrorObjectResult : ObjectResult
     {

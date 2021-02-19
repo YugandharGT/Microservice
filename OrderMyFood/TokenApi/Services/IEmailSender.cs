@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TokenServiceApi.Services
+namespace OrderMyFood.TokenApi.Services
 {
     public interface IEmailSender
     {

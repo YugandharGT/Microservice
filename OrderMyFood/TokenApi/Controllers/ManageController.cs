@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using TokenServiceApi.Models;
-using TokenServiceApi.Models.ManageViewModels;
-using TokenServiceApi.Services;
+using OrderMyFood.TokenApi.Models;
+using OrderMyFood.TokenApi.Models.ManageViewModels;
+using OrderMyFood.TokenApi.Services;
 
-namespace TokenServiceApi.Controllers
+namespace OrderMyFood.TokenApi.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

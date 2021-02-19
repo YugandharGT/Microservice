@@ -1,15 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderMyFood.Services.ReviewApi.Data;
+using OrderMyFood.Services.ReviewApi.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.AspNetCore.Hosting;
-using OrderMyFood.Services.ReviewApi.Data;
 
 namespace OrderMyFood.Services.ReviewApi.Business
 {
@@ -25,7 +20,23 @@ namespace OrderMyFood.Services.ReviewApi.Business
             }
         }
 
-        public async Task<IEnumerable<object>> ViewReview()
+        public async Task<Restaurant> UpdateRating(int v1, short value)
+        {
+            using (var dbContext = new RestaurantContext())
+            {
+                var updtRecord = (from r in dbContext.Restaurants where r.RestaurantId == v1 select r).SingleOrDefault();
+                if (updtRecord != null)
+                {
+                    updtRecord.Ratings = value;
+                    dbContext.Update(updtRecord);
+                    await dbContext.SaveChangesAsync();
+                    return updtRecord;
+                }
+                return null;
+            }
+        }
+
+        public Task<IEnumerable<object>> ViewReview()
         {
             throw new NotImplementedException();
         }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TokenServiceApi.Models.ManageViewModels
+namespace OrderMyFood.TokenApi.Models.ManageViewModels
 {
     public class EnableAuthenticatorViewModel
     {

@@ -34,8 +34,25 @@ namespace OrderMyFood.Services.ReviewApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] int restid, string value)
         {
+            try
+            {
+                IReview review = new Review();
+                short ratValue = 0;
+                if (!short.TryParse(value, out ratValue)) return BadRequest("Passed value found Invald");
+
+                var result = await review.UpdateRating(restid, ratValue); 
+                if (result != null)
+                {
+                    return Ok(result);
+                }
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
     }

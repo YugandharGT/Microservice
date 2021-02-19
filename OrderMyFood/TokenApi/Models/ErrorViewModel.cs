@@ -1,6 +1,6 @@
 using System;
 
-namespace TokenServiceApi.Models
+namespace OrderMyFood.TokenApi.Models
 {
     public class ErrorViewModel
     {

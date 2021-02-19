@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace TokenServiceApi.Models.ManageViewModels
+namespace OrderMyFood.TokenApi.Models.ManageViewModels
 {
     public class ExternalLoginsViewModel
     {

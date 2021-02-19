@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace OrderApi.Model
+namespace OrderMyFood.Services.OrderApi.Model
 {
     public class Customer
     {
-        public String UserId { get; set; }
+        [Key]
+        public int CustomerId { get; set; }
 
         public String UserName { get; set; }
 
@@ -16,6 +14,6 @@ namespace OrderApi.Model
 
         public String Address { get; set; }
 
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using OrderMyFood.RestaurantSearchApi.ViewModel;
 
 namespace OrderMyFood.Services.RestaurantSearchApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Restaurant")]
     [ApiController]
     public class RestaurantController : ControllerBase
     {
@@ -63,7 +63,7 @@ namespace OrderMyFood.Services.RestaurantSearchApi.Controllers
 
         }
 
-        [HttpGet]
+        [HttpGet("SearchRestaurants")]
         public async Task<IActionResult> SearchRestaurants([FromQuery] int pageIndex = 0, [FromQuery] int pageSize = 0) //int? catalogTypeId, int? catalogBrandId, [FromQuery]int pageSize = 6, [FromQuery]int pageIndex = 0
         {
 

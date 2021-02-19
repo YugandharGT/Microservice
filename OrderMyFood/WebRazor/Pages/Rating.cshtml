@@ -4,28 +4,11 @@
     int ratingCounter = 1;
 }
 <script src="~/jqwidgets/jqxtabs.js"></script>
-<script src="~/jqwidgets/jqxrating.js"></script>
+<script src="~/jqwidgets/jqxbuttons.js"></script>
+<script src="~/lib/bootstrap/dist/js/star-rating.js"></script>
 <jqx-tabs animation-type="fade">
     <jqx-tab-panel>
         <jqx-tab-panel-header>View</jqx-tab-panel-header>
-        <jqx-tab-panel-body>
-
-            @foreach (var item in Model.ratingViewModel)
-            {
-            <div class="row">
-                <div class="col-md-2 col-md-offset-1">
-                    <label class="col-sm-3 col-form-label">@item.Name</label>
-                </div>
-                <div class="col-md-2 col-md-offset-1">
-                    <jqx-rating theme="@ViewData["theme"]" value="@item.Star" width="200" height="35"></jqx-rating>
-                </div>
-            </div>
-            }
-
-        </jqx-tab-panel-body>
-    </jqx-tab-panel>
-    <jqx-tab-panel>
-        <jqx-tab-panel-header>Edit</jqx-tab-panel-header>
         <jqx-tab-panel-body>
             @foreach (var item in Model.ratingViewModel)
             {
@@ -34,19 +17,36 @@
                         <label class="col-sm-3 col-form-label">@item.Name</label>
                     </div>
                     <div class="col-md-2 col-md-offset-1">
-                        <jqx-rating theme="@ViewData["theme"]" value="@item.Star" width="200" height="35"></jqx-rating>
-                    </div>
-                    <div class="col-md-2 col-md-offset-1">
-                        <jqx-button id="@string.Format("postrating_{0}",ratingCounter++)" on-click="btnRatngHandler()">Submit</jqx-button>
-                        @*<input id="@string.Format("postrating_{0}",ratingCounter++)" type="submit" value="Submit" class="btn btn-default" />*@
+                        <jqx-rating theme="@ViewData["theme"]" value="@item.Star" disabled="true" width="200" height="35"></jqx-rating>
                     </div>
                 </div>
             }
-
         </jqx-tab-panel-body>
     </jqx-tab-panel>
-</jqx-tabs>
-    @*<form class="form-horizontal" method="post">
+    <jqx-tab-panel>
+        <jqx-tab-panel-header>Edit</jqx-tab-panel-header>
+        <jqx-tab-panel-body>
+            @foreach (var item in Model.ratingViewModel)
+            {
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <label class="col-sm-3 col-form-label">@item.Name</label>
+                </div>
+                
+            <div class="col-md-2 col-md-offset-1">
+                <input id="@string.Format("viewRating_{0}",ratingCounter++)" type="number" class="rating" value="@item.Star" min=0 max=5 step=1 data-size="sm">
+                @*<jqx-rating id="" instance="getInstance()" on-change="btnRatngHandler()" theme="@ViewData["theme"]" value="@item.Star" width="200" height="35"></jqx-rating>*@
+            </div>
+                <!--<div class="col-md-2 col-md-offset-1">
+    <jqx-button id="@string.Format("postrating_{0}",ratingCounter++)" on-click="btnRatngHandler()">Submit</jqx-button>-->
+                @*<input id="@string.Format("postrating_{0}",ratingCounter++)" type="submit" value="Submit" class="btn btn-default" />*@
+                <!--</div>-->
+            </div>
+            }
+
+        </jqx-tab-panel-body>
+    </jqx-tab-panel></jqx-tabs>
+@*<form class="form-horizontal" method="post">
         <div class="row">
             <div class="col-md-2 col-md-offset-1">
                 <jqx-rating theme="@ViewData["theme"]" value="5" id="SubmittedRating" instance="loadValues()" width="200" height="35"></jqx-rating>
@@ -57,21 +57,56 @@
         </div>
     </form>*@
 
-    @section scripts{
-        <script>
-            function btnRatngHandler(event) {
-                var $curr = $(this);
-                $curr.first().text();
-                $curr.prev().val();
-            }
+@section scripts{
+    @**@
+    <script type="text/javascript">
+        var starVal = '';
+        function getInstance(instance) {
+            starVal = instance["getValue"]();
+            console.log(starVal);
+        }
 
-            function setValues(instance) {
-                instance["setValue"](3);
-            }
+        function btnRatngHandler(event) {
+            //var result = instance["getValue"]();
+            //var result = $('div[id^="viewRating"]').jqxRating('getValue');  
+            //var second = $curr.closest('div').parent('div').find('[id^="viewRating"]').jqxRatng('getValue');
+            var result = event.value;
 
-            function loadValues(instance) {
-                instance["setValue"](3);
-            }
+            var $curr = $(this);
+            var first = $curr.parent('div').find('label').text();
+            console.log(starVal + ": " + result + ": " + first);
+            
 
-        </script>
-    }
+        }
+        $(document).ready(function () {
+            
+            $("div[id^='viewRating']").on("rating.change", function (event, value, caption) {
+                debugger;
+                var ratingValue = $(this).val(); //$('#<%=hdfRatingValue.ClientID%>').val();
+                ratingValue = value;
+                alert(ratingValue);
+                $.ajax({
+                    type: "POST",
+                    url: "/Ratng?handler=OnPostUpdateRating",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN",
+                            $('input:hidden[name="__RequestVerificationToken"]').val());
+                    },
+                    data: { "name": first + ", value :" + second },
+                    success: function (response) {
+                        alert("Hello: " + response.Name + " .\nCurrent Date and Time: " + response.DateTime);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });  
+
+        });
+  
+
+    </script>
+}

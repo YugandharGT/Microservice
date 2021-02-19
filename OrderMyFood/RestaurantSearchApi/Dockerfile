@@ -16,4 +16,4 @@ FROM mcr.microsoft.com/dotnet/core/runtime:2.1
 WORKDIR /app
 COPY --from=build-env /app/out .
 EXPOSE 80/tcp
-ENTRYPOINT ["dotnet", "RestaurantSearchApi.dll"]
+ENTRYPOINT ["dotnet", "ReviewApi.dll"]

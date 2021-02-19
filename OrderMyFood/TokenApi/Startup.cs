@@ -8,13 +8,14 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using TokenApi.Data;
-using TokenServiceApi.Models;
-using TokenServiceApi.Services;
+using OrderMyFood.TokenApi.Data;
+using OrderMyFood.TokenApi.Models;
+using OrderMyFood.TokenApi.Services;
 
 namespace TokenApi
 {
@@ -30,28 +31,43 @@ namespace TokenApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
-
-            // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
-
+            services.Configure<CookiePolicyOptions>(opt =>
+            {
+                opt.CheckConsentNeeded = context => true;
+                opt.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.None;
+            });
+            //Framework
             services.AddMvc();
 
-            // configure identity server with in-memory stores, keys, clients and scopes
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddInMemoryPersistedGrants()
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients(Config.GetUrls(Configuration)))
-                .AddAspNetIdentity<ApplicationUser>();
+            //External Authorization
+            //services.AddAuthentication().AddFacebook(facebookOptions =>
+            //{
+            //    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+            //    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            //});
+
+            //configure identity 
+            services.AddIdentity<ApplicationUser, IdentityRole>(i => i.User.RequireUniqueEmail = true)
+              .AddEntityFrameworkStores<IdentityAppContext>();
+            //.AddDefaultTokenProviders();
+            services.AddEntityFrameworkSqlServer()
+                    .AddDbContext<IdentityAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+         
+
+            //configure identity server with in-memory stores, keys, clients and scopes
+            //services.AddIdentityServer()
+            //    .AddDeveloperSigningCredential()
+            //    .AddInMemoryPersistedGrants()
+            //    .AddInMemoryIdentityResources(Config.GetIdentityResources())
+            //    .AddInMemoryApiResources(Config.GetApiResources())
+            //    .AddInMemoryClients(Config.GetClients(Config.GetUrls(Configuration)));
+                //.AddAspNetIdentity<ApplicationUser>();
+
+
+
+            // Add application services.
+            //services.AddTransient<IEmailSender, EmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +76,7 @@ namespace TokenApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                //app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
             }
             else
@@ -69,15 +85,18 @@ namespace TokenApi
             }
 
             app.UseStaticFiles();
-
+            app.UseAuthentication();
+            
+            
             // app.UseIdentity(); // not needed, since UseIdentityServer adds the authentication middleware
-            app.UseIdentityServer();
+           // app.UseIdentityServer();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
+                
             });
         }
     }

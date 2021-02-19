@@ -49,7 +49,7 @@ namespace RestaurantSearchApi
                  .AddApiExplorer();
 
             services.AddDbContext<RestaurantContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("RestaurantDB"), options => options.EnableRetryOnFailure()));
-
+            //Add Framework services
             services.AddSwaggerGen(options =>
             {
                 options.DescribeAllEnumsAsStrings();

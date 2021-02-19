@@ -14,3 +14,7 @@ D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\CustomerApi\obj\Debu
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\CustomerApi\obj\Debug\netcoreapp2.1\CustomerApi.dll
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\CustomerApi\obj\Debug\netcoreapp2.1\CustomerApi.pdb
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\CustomerApi\obj\Debug\netcoreapp2.1\CustomerApi.genruntimeconfig.cache
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\CustomerApi\obj\Debug\netcoreapp2.1\CustomerApi.csprojAssemblyReference.cache
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\CustomerApi\bin\Debug\netcoreapp2.1\OrderApi.dll
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\CustomerApi\bin\Debug\netcoreapp2.1\OrderApi.pdb
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\CustomerApi\obj\Debug\netcoreapp2.1\CustomerApi.csproj.CopyComplete

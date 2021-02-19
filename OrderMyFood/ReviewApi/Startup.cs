@@ -30,6 +30,20 @@ namespace ReviewApi
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<RestaurantContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("RestaurantDB"), options => options.EnableRetryOnFailure()));
+
+            //Add Framework services
+            services.AddSwaggerGen(options =>
+            {
+                options.DescribeAllEnumsAsStrings();
+                options.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info()
+                {
+                    Title = "Food Review - Review HTTP API",
+                    Version = "v1",
+                    Description = "The Catalog Microservice HTTP API. This is a Data-Driven/CRUD microservice sample",
+                    TermsOfService = "Terms Of Service"
+                });
+            });
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -51,7 +65,13 @@ namespace ReviewApi
             {
                 app.UseHsts();
             }
+            //"api/Review/GetRestaurantRatings"
+            app.UseSwagger()
+              .UseSwaggerUI(c =>
+              {
+                  c.SwaggerEndpoint($"/swagger/v1/swagger.json", "ReviewApi V1");
 
+              });
             app.UseCors("CorsPolicy");
             app.UseMvc();
         }
