@@ -83,7 +83,7 @@ using IdentityServer4.Quickstart.UI;
             WriteLiteral("    <div class=\"alert alert-danger\">\r\n        <strong>Error</strong>\r\n        ");
             EndContext();
             BeginContext(130, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d26a3c1b50c44fc3b03d696c50abc46b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26e35c13bde8438ebd4002573c2639f4", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();

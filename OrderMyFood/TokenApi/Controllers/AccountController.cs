@@ -16,7 +16,7 @@ using OrderMyFood.TokenApi.Services;
 using IdentityServer4.Services;
 using Microsoft.AspNetCore.Http;
 using IdentityServer4.Quickstart.UI;
- 
+
 
 namespace OrderMyFood.TokenApi.Controllers
 {
@@ -55,9 +55,14 @@ namespace OrderMyFood.TokenApi.Controllers
         {
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-
-            ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            //External Login provider
+            var externalProviders = await _signInManager.GetExternalAuthenticationSchemesAsync();
+            //ViewData["ReturnUrl"] = returnUrl;
+            return View(new LoginViewModel()
+            {
+                Returnurl = returnUrl,
+                ExternalProviders = externalProviders
+            }); ; ;
         }
 
         [HttpPost]
@@ -306,7 +311,7 @@ namespace OrderMyFood.TokenApi.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult ExternalLogin(string provider, string returnUrl = null)
+        public IActionResult ExternalLogin(string provider, string returnUrl) //=null
         {
             // Request a redirect to the external login provider.
             var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Account", new { returnUrl });
@@ -316,13 +321,13 @@ namespace OrderMyFood.TokenApi.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl)// = null , string remoteError
         {
-            if (remoteError != null)
-            {
-                ErrorMessage = $"Error from external provider: {remoteError}";
-                return RedirectToAction(nameof(Login));
-            }
+            //if (remoteError != null)
+            //{
+            //    ErrorMessage = $"Error from external provider: {remoteError}";
+            //    return RedirectToAction(nameof(Login));
+            //}
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
@@ -330,24 +335,51 @@ namespace OrderMyFood.TokenApi.Controllers
             }
 
             // Sign in the user with this external login provider if the user already has a login.
-            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false);
             if (result.Succeeded)
             {
                 _logger.LogInformation("User logged in with {Name} provider.", info.LoginProvider);
                 return RedirectToLocal(returnUrl);
             }
-            if (result.IsLockedOut)
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+            return View("ExternalRegister", new ExternalRegisterViewModel { Email = email, ReturnUrl = returnUrl });
+            //if (result.IsLockedOut)
+            //{
+            //    return RedirectToAction(nameof(Lockout));
+            //}
+            //else
+            //{
+            //    // If the user does not have an account, then ask the user to create an account.
+            //    ViewData["ReturnUrl"] = returnUrl;
+            //    ViewData["LoginProvider"] = info.LoginProvider;
+            //    var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+            //    return View("ExternalLogin", new ExternalLoginViewModel { Email = email, ReturnUrl = returnUrl });
+            //}
+        }
+
+        public async Task<IActionResult> ExternalRegister(ExternalLoginViewModel externalLoginViewModel)
+        {
+            //ViewData["ReturnUrl"] = returnUrl;
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
             {
-                return RedirectToAction(nameof(Lockout));
+                return RedirectToAction("Login");
             }
-            else
+
+            var user = new ApplicationUser(externalLoginViewModel.Email);
+            var result = await _userManager.CreateAsync(user);
+            if (!result.Succeeded)
             {
-                // If the user does not have an account, then ask the user to create an account.
-                ViewData["ReturnUrl"] = returnUrl;
-                ViewData["LoginProvider"] = info.LoginProvider;
-                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-                return View("ExternalLogin", new ExternalLoginViewModel { Email = email });
+                _logger.LogInformation("User created a new account with external login.");
+                return View(externalLoginViewModel);
             }
+            result = await _userManager.AddLoginAsync(user, info);
+            if (!result.Succeeded)
+            {
+                return View(externalLoginViewModel);
+            }
+            await _signInManager.SignInAsync(user, false);
+            return View(externalLoginViewModel.ReturnUrl);
         }
 
         [HttpPost]

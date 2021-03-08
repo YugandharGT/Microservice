@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using static WebRazor.Pages.OrderModel;
 
 namespace OrderMyFood.Web.WebRazor.Infrastructure
 {
@@ -79,6 +81,14 @@ namespace OrderMyFood.Web.WebRazor.Infrastructure
             internal static string GetRestaurantRatings(string remoteServiceBaseUrl)
             {
                 return $"{remoteServiceBaseUrl}/GetRestaurantRatings";
+            }
+        }
+
+        public static class OrderPage
+        {
+            internal static string GetMenuByRestaurantId(string baseUri)
+            {                
+                return $"{baseUri}/PlaceOrder";
             }
         }
     }

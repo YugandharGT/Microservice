@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,13 +20,18 @@ namespace OrderMyFood.Services.OrderApi.Controllers
             orderContext = new MealOrderContext();
         }
 
+        // for swagger call 
+        //[FromQuery] string restaurantId, [FromQuery] Customer customerJson, [FromBody] ICollection<FoodMenuModel> foodMenuJson
         [HttpPost] 
         [Route("PlaceOrder")]
-        public IActionResult PlaceOrder([FromQuery] string restaurantId, [FromQuery] Customer customerJson, [FromBody] ICollection<FoodMenuModel> foodMenuJson)
+        public IActionResult PlaceOrder(ArrayList arrayList)
         {
             try
             {
-                var orderId = orderContext.MealOrderByUser(foodMenuJson, restaurantId, customerJson);
+                //To handle client code request
+                Customer customerJson = JsonConvert.DeserializeObject<Customer>(arrayList[1].ToString());
+                ICollection<FoodMenuModel> foodMenuJson = JsonConvert.DeserializeObject<ICollection<FoodMenuModel>>(arrayList[2].ToString());
+                var orderId = orderContext.MealOrderByUser(foodMenuJson, arrayList[0].ToString(), customerJson);
                 
                 if (!string.IsNullOrEmpty(orderId))
                 {

@@ -35,18 +35,6 @@ namespace RestaurantSearchApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            
-            services.AddMvcCore(
-                options => options.Filters.Add(typeof(HttpGlobalExceptionFilter))
-                )
-                 .AddJsonFormatters(
-                  Options =>
-                  {
-                      Options.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                      Options.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                  }
-               )
-                 .AddApiExplorer();
 
             services.AddDbContext<RestaurantContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("RestaurantDB"), options => options.EnableRetryOnFailure()));
             //Add Framework services
@@ -61,21 +49,21 @@ namespace RestaurantSearchApi
                     TermsOfService = "Terms Of Service"
                 });
             });
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy",
+            //        builder => builder.AllowAnyOrigin()
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader()
+            //        .AllowCredentials());
+            //});
 
-            //ConfigureAuthService(services);
+            ConfigureIdentityService(services);
 
-            ConfigureObjectsDI(services);
+            //ConfigureObjectsDI(services);
         }
 
-        private void ConfigureAuthService(IServiceCollection services)
+        private void ConfigureIdentityService(IServiceCollection services)
         {
             // prevent from mapping "sub" claim to nameidentifier.
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
@@ -84,14 +72,13 @@ namespace RestaurantSearchApi
 
             services.AddAuthentication(options =>
             {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
             }).AddJwtBearer(options =>
             {
                 options.Authority = identityUrl;
                 options.RequireHttpsMetadata = false;
-                options.Audience = "restaurant";
+                options.Audience = "Restaurant";
 
             });
         }
@@ -124,9 +111,10 @@ namespace RestaurantSearchApi
                   c.ConfigureOAuth2("Restaurantswaggerui", "", "", "Restaurant Swagger UI");
               });
 
-            app.UseCors("CorsPolicy");
+            // Identity server configuration
+            app.UseAuthentication();
             app.UseMvc();
-            
+
         }
     }
 }

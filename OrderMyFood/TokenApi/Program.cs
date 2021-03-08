@@ -19,14 +19,14 @@ namespace TokenApi
         public static void Main(string[] args)
         {
             //var host = 
-            CreateWebHostBuilder(args).Run();
-           
-            //using(var scope = host.Services.CreateScope())
+                CreateWebHostBuilder(args).Run(); //.Run();
+
+            //using (var scope = host.Services.CreateScope())
             //{
             //    var services = scope.ServiceProvider;
             //    try
             //    {
-            //        var context = services.GetRequiredService<RestaurantContext>();
+            //        var context = services.GetRequiredService<IdentityAppContext>();
             //        var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
             //        IdentityDbInit.Initialize(context, userManager);
             //    }

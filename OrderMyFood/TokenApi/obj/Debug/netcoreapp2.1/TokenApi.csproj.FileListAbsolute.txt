@@ -58,3 +58,4 @@ D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\n
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.RazorTargetAssemblyInfo.cs
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.Views.pdb
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\TokenApi.csproj.CopyComplete
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\TokenApi\obj\Debug\netcoreapp2.1\Razor\Views\Account\ExternalRegister.cshtml.g.cs

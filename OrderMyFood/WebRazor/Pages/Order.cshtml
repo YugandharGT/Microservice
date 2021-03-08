@@ -1,0 +1,81 @@
+﻿@page
+@model WebRazor.Pages.OrderModel
+@{
+    <style type="text/css">
+        .txtBoxWidth {
+            width: 90px;
+        }
+
+        .setMarginAll {
+            margin: 15px 10px;
+        }
+    </style>
+    <form method="post">
+        <div class="row">
+
+            <div class="setMarginAll col-md-offset-1 col-md-4">
+                <select id="restaurant" name="restaurant">
+                    <option value="">Select a number</option>
+                    <option value="1">Barbequnation</option>
+                    <option value="2">Paradize</option>
+                    <option value="4">Mango Tree</option>
+                    <option value="5">Brewsky</option>
+                </select>
+                <hr />
+                <input id="getMenu" type="submit" value="GetMenu" class="btn btn-default" onclick="loadFood()" />
+                @*asp-page-handler="restaurant"*@
+                <hr />
+
+                <div id="menulist" class="form-horizontal">
+                    <input id="foodId" class="txtBoxWidth setMarginAll" type="text" asp-for="food.FoodId" />
+                    <input id="foodName" class="txtBoxWidth setMarginAll" type="text" asp-for="food.FoodName" />
+                    <input id="foodPrice" class="txtBoxWidth setMarginAll" type="text" asp-for="food.Price" />
+                </div></div>
+            <div class="col-md-offset-1 col-md-4">
+                <div class="form-horizontal">
+                    <input type="text" class="txtBoxWidth setMarginAll" id="Name" name="Name" value="" />
+                    <input type="text" class="txtBoxWidth setMarginAll" data-val="true" data-val-email="The Email field is not a valid e-mail address." id="Email" name="Email" value="" />
+                    <input type="number" class="txtBoxWidth setMarginAll" data-val="true" data-val-required="Amount is required." id="Amount" name="Amount" value="" />
+                    <textarea data-val="true" class="txtBoxWidth setMarginAll" data-val-maxlength-max="300" id="Address" name="Address"></textarea>
+                </div>
+                <hr />
+                <input type="submit" value="Submit" class="btn btn-default" width="60" asp-page-handler="customer" />
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
+    </form>
+    @section scripts{
+        <script>
+            function loadFood() {
+                var pass = $("#restaurant option:selected").val();
+                //console.log(pass);
+                $.ajax({
+                    type: 'GET',
+                    url: 'Order?handler=LoadFoodPartial',
+                    contentType: 'application/json',
+                    data: { 'restId' : pass},
+                    dataType: 'JSON',
+                    success: function (response) {
+                        debugger;
+                        console.log(response.d);
+                        $(".txtBoxWidth").show();
+                        $("#foodId").val(response.d[0].FoodId);
+                        $("#foodName").val(response.d[0].FoodName);
+                        $("#foodPrice").val(response.d[0].FoodPrice);
+
+                    },
+                    failure: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+
+
+
+            $(function () {
+                $(".txtBoxWidth").hide();
+        });
+        </script>
+    }
+}

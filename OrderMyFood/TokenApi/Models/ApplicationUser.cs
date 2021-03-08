@@ -13,6 +13,13 @@ namespace OrderMyFood.TokenApi.Models
     /// </summary>
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+
+        }
+        public ApplicationUser(string emailId)
+        {
+        }
         [Column("Email_Id")]
         public string EmailId { get; set; }
         

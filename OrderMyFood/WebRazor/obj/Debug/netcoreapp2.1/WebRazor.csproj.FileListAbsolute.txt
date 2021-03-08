@@ -37,3 +37,5 @@ D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebRazor\obj\Debug\n
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebRazor\obj\Debug\netcoreapp2.1\Razor\Pages\SignIn.cshtml.g.cs
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebRazor\obj\Debug\netcoreapp2.1\Razor\Pages\SignOut.cshtml.g.cs
 D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebRazor\obj\Debug\netcoreapp2.1\Razor\Pages\Register.cshtml.g.cs
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebRazor\obj\Debug\netcoreapp2.1\Razor\Pages\Order.cshtml.g.cs
+D:\Technology\Dotnet-Projects\VS19\Microservice\OrderMyFood\WebRazor\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\FoodPartial.cshtml.g.cs

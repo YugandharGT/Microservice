@@ -16,6 +16,7 @@ namespace TokenApi
             urls.Add("Mvc", configuration.GetValue<string>("MvcClient"));
             urls.Add("RestaurantApi", configuration.GetValue<string>("MvcClient"));
             urls.Add("ReviewApi", configuration.GetValue<string>("MvcClient"));
+            urls.Add("OrderApi", configuration.GetValue<string>("MvcClient"));
             return urls;
         }
 
@@ -65,7 +66,7 @@ namespace TokenApi
                       //  IdentityServerConstants.StandardScopes.Email,
                          "orders",
                         "restaurant",
-
+                        "Review"
                     }
 
                 },

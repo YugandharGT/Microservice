@@ -67,7 +67,7 @@ using jQWidgets.AspNetCore.Mvc.TagHelpers;
 #line default
 #line hidden
             BeginContext(90, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8303f2eaf58f4da1bb78a8c2d8d5306f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7cc4c94a99714b42abf91ef7dfa2b701", async() => {
                 BeginContext(125, 4, true);
                 WriteLiteral("\r\n\r\n");
                 EndContext();
@@ -89,12 +89,12 @@ using jQWidgets.AspNetCore.Mvc.TagHelpers;
             WriteLiteral("\r\n\r\n<h3>Menu Items</h3>\r\n");
             EndContext();
             BeginContext(168, 429, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a83b414064f48e38aec6267b9884cc2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9abb85e7a7f64b98a3fef51405e34fc5", async() => {
                 BeginContext(212, 54, true);
                 WriteLiteral("\r\n    <div class=\"col-md-2 col-md-offset-1\">\r\n        ");
                 EndContext();
                 BeginContext(266, 98, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19dc01203cdb4fdeb071558876d03f9c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8b2276dd0e14d458fdbe26b5af189e2", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();
@@ -240,7 +240,7 @@ WriteAttributeValue(" ", 1313, !Model.ShowFirst? "disabled":"", 1314, 34, false)
             WriteLiteral(">\r\n                ");
             EndContext();
             BeginContext(1368, 123, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fef43526d0c74d9287710c805d8f40aa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "848b37ee658f40bdb9cedfa9cf2fa4be", async() => {
                 BeginContext(1438, 49, true);
                 WriteLiteral("<i class=\"glyphicon glyphicon-fast-backward\"></i>");
                 EndContext();
@@ -280,7 +280,7 @@ WriteAttributeValue(" ", 1546, !Model.ShowPrevious? "disabled":"", 1547, 37, fal
             WriteLiteral(">\r\n                ");
             EndContext();
             BeginContext(1604, 145, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de7220bf59664139a093d610b208ec29", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a1f76ab3174f460780b4cdde97b478f8", async() => {
                 BeginContext(1696, 49, true);
                 WriteLiteral("<i class=\"glyphicon glyphicon-step-backward\"></i>");
                 EndContext();
@@ -327,7 +327,7 @@ WriteAttributeValue("  ", 1802, !Model.ShowNext? "disabled":"", 1804, 33, false)
             WriteLiteral(">\r\n                ");
             EndContext();
             BeginContext(1857, 145, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a113b51f3fa64e20b7d8b8c944316f7e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0356ebba41d0480482c11402cee9753a", async() => {
                 BeginContext(1950, 48, true);
                 WriteLiteral("<i class=\"glyphicon glyphicon-step-forward\"></i>");
                 EndContext();
@@ -374,7 +374,7 @@ WriteAttributeValue("  ", 2057, !Model.ShowLast? "disabled":"", 2059, 33, false)
             WriteLiteral(">\r\n                ");
             EndContext();
             BeginContext(2112, 138, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c2c41d028b84606beb22b1e42fc877f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "16741effa85245aea9dfb257faf8785c", async() => {
                 BeginContext(2198, 48, true);
                 WriteLiteral("<i class=\"glyphicon glyphicon-fast-forward\"></i>");
                 EndContext();

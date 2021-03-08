@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authentication;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,5 +19,9 @@ namespace OrderMyFood.TokenApi.Models.AccountViewModels
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        public string Returnurl{ get; set; }
+
+        public IEnumerable<AuthenticationScheme> ExternalProviders { get; set; }
     }
 }
